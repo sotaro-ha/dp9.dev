@@ -7,15 +7,18 @@ import Footer from '../../components/Footer';
 import SubNavbar from '../../components/subNavbar';
 import { getArticleData } from '../../lib/articles';
 import ArticleNavigation from '../../components/ArticleNavigation';
+import MarkdownRenderer from '../../components/MarkdownRenderer';
 
 export default function Article({ article, articles, prevArticle, nextArticle }) {
     return (
         <div>
             <Header />
-            <div className='flex'>
+            <div className='flex max-6xl mx-auto'>
                 <SubNavbar category="setup" articles={articles} />
                 <div className='p-8'>
-                    <ReactMarkdown>{article.content}</ReactMarkdown>
+                    <div className='markdown'>
+                        <MarkdownRenderer content={article.content} />;
+                    </div>
                     <ArticleNavigation category="setup" prevArticle={prevArticle} nextArticle={nextArticle} />
                 </div>
             </div>

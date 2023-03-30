@@ -17,4 +17,23 @@ order: 1
 5. `getStaticPaths`と`getStaticProps`の設定
 6. ナビゲーションの自動生成
 
+![dp9の画像](/dp9.png) 
+
+```js
+// アラートを表示する
+function alert() {
+  window.alert("アラート");
+}
+```
+```css
+// 背景色を赤にする
+body {
+  background-color: red;
+}
+```
+```html
+// リンクを作成する
+<a href="https://www.google.com/">Google</a>
+```
+
 このチュートリアルを終えると、Next.jsを使って独自のチュートリアルサイトを作成できるようになります。

@@ -9,7 +9,7 @@ export default function ActiveNavigation({ href, children, isVisible }) {
         return <div></div>;
     }
     return (
-        <Link href={href} className="shadow-sm hover:shadow-md p-4" >
+        <Link href={href} className="shadow-sm hover:shadow-md px-4 py-6" >
             <span style={isActive ? { fontWeight: 'bold', textDecoration: 'underline' } : {}}>{children}</span>
         </Link>
     );

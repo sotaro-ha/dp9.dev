@@ -14,12 +14,15 @@
     "@headlessui/react": "^1.7.13",
     "@heroicons/react": "^2.0.16",
     "@mui/material": "^5.11.15",
+    "clipboard-copy": "^4.0.1",
     "gray-matter": "^4.0.3",
     "loadsh": "^0.0.4",
     "next": "13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-markdown": "^8.0.6"
+    "react-markdown": "^8.0.6",
+    "react-syntax-highlighter": "^15.5.0",
+    "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
