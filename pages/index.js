@@ -42,22 +42,22 @@ const data = [
 function Hero() {
   return (
     <section
-      className="bg-cover bg-center py-32"
+      className="w-full bg-cover bg-center py-8  sm:py-16"
       style={{ backgroundImage: 'url("/bg.jpg")' }}
     >
-      <div className=" max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-left">
-          <h2 className="text-4xl font-extrabold text-white sm:text-8xl text-left my-8">
+          <h2 className="w-full text-4xl xs:text-6xl font-extrabold text-white sm:text-8xl text-left my-8">
             <p>Design</p>
             <p>By</p>
-            <p>Development</p>
+            <p className='w-full'>Development</p>
           </h2>
-          <p className='text-white text-2xl w-2/3 font-medibold'>実際に自分でコードが書けるようになると、デザインのアイデアを実現することができます。
+          <p className='text-white text-base sm:text-xl sm:w-2/3 font-medibold'>自分でコードが書けるようになると、デザインのアイデアを実現することができます。
             自分にはWebコーディングは難しい......どこから学べば良いかわからない......という人のための、一通りwebサイトが作れるようになるようにチュートリアルです。
           </p>
           <div className="mt-10 sm:flex sm:justify-center">
-            <div className="rounded-md shadow">
-              <a href="#" className="w-full flex items-center justify-center px-16 py-3 border border-transparent text-base font-medium rounded-md text-gray-800 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
+            <div className=" font-bold">
+              <a href="#" className="w-full flex items-center rounded-xl justify-center px-16 py-3  text-base  text-gray-800 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
                 Start Learning
               </a>
             </div>
@@ -70,12 +70,12 @@ function Hero() {
 function Card(props) {
   return (
     <Link href={props.href}>
-      <div className='hover:shadow-md shadow-sm p-8 flex items-center relative rounded-md'>
+      <div className='hover:shadow-md shadow-sm p-8 block items-center relative rounded-md xl:flex'>
         <Image src={props.image} width={200} height={200} alt={props.alt} className="h-24 mr-4" />
-        <div className='p-4'>
+        <div className='p-4 sm:p-0'>
           <p className="absolute right-0 text-7xl opacity-40 text-primary font-bold">{props.index}</p>
           <h3 className='text-2xl font-bold mb-4'  >{props.title}</h3>
-          <p > {props.description}</p>
+          <p className='mb-4 xl:mb-0'> {props.description}</p>
           <p className='text-right text-primary font-bold'>詳しく見る→</p>
         </div>
       </div>
@@ -87,7 +87,7 @@ function Cards() {
     <>
       <h2 className="text-5xl font-extrabold text-gray-800 text-left mt-8 ">Learn</h2>
       <p className='text-gray2 mb-8 font-bold'>Web制作を学ぶ</p>
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid sm:grid-cols-2 gap-8 grid-cols-1">
         {data.map((item) => (Card(item)))}
       </div>
     </>
@@ -108,8 +108,7 @@ function About() {
       <Button href="http://designingplusnine.com/" text="designing plus nineのサイトへ" />
       <h3 className='text-2xl font-bold mb-4'>対象</h3>
       <div className='mb-4'>
-        <p className='mb-2'>このチュートリアルは、デザインを学んだ事はあるがコーディングなどはしたことがない人向けに設計されています。</p>
-        <p className='mb-2'>したがって、デザインの基礎ツールなどは使えるものとして、特にコーディングについて学ぶことを目的としています。</p>
+        <p className='mb-2'>このチュートリアルは、デザインの基礎を学んだことがあるが、コーディングについては初心者の人向けに設計されています。したがって、デザインの基礎ツールなどは使えるものとして、主にコーディングについて学ぶことを目的としています。このチュートリアルを最後まで完了することで、CW（クライアントワーク）でランディングページをコーディングすることができるようになることを期待しています。</p>
       </div>
       <div></div>
     </>
@@ -120,6 +119,9 @@ function Dojo() {
     <>
       <h2 className="text-5xl font-extrabold text-gray-800 text-left mt-8 ">Dojo</h2>
       <p className='text-gray2 mb-8 font-bold'>道場</p>
+      <div className='mb-4'>
+        <p className='mb-2'>COMING SOON......</p>
+      </div>
     </>
   )
 }
