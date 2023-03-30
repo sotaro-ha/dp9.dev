@@ -84,18 +84,18 @@ function Card(props) {
 }
 function Cards() {
   return (
-    <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <>
       <h2 className="text-5xl font-extrabold text-gray-800 text-left mt-8 ">Learn</h2>
       <p className='text-gray2 mb-8 font-bold'>Web制作を学ぶ</p>
       <div className="grid grid-cols-2 gap-8">
         {data.map((item) => (Card(item)))}
       </div>
-    </section>
+    </>
   )
 }
 function About() {
   return (
-    <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <>
       <h2 className="text-5xl font-extrabold text-gray-800 text-left mt-8 ">About</h2>
       <p className='text-gray2 mb-8 font-bold'>このチュートリアルについて</p>
       <h3 className='text-2xl font-bold mb-4'>経緯</h3>
@@ -112,7 +112,7 @@ function About() {
         <p className='mb-2'>したがって、デザインの基礎ツールなどは使えるものとして、特にコーディングについて学ぶことを目的としています。</p>
       </div>
       <div></div>
-    </section>
+    </>
   )
 }
 function Dojo() {
@@ -128,8 +128,12 @@ export default function Home() {
     <>
       <Header />
       <Hero />
-      <Cards />
-      <About />
+      <Section >
+        <Cards />
+      </Section>
+      <Section >
+        <About />
+      </Section>
       <Section >
         <Dojo />
       </Section>
