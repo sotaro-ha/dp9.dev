@@ -10,7 +10,7 @@ const data = [
     image: "/index/setup.svg",
     alt: "setup image",
     description: "VScodeや、GitなどWeb開発に欠かせないツールを導入します。",
-    href: "/setup",
+    href: "/setup/overview",
     index: "01"
   },
   {
@@ -18,7 +18,7 @@ const data = [
     image: "/index/diary.svg",
     alt: "diary image",
     description: "まずは、導入としてシンプルな日記サイトの制作を通してhtmlやcssの基本を学びます。",
-    href: "/diary",
+    href: "/diary/overview",
     index: "02"
   },
   {
@@ -26,7 +26,7 @@ const data = [
     image: "/index/lp.svg",
     alt: "lp image",
     description: "LP(ランディングページ)と呼ばれるWebサイトの制作を通して実践的な知識を身につけます。",
-    href: "/lp",
+    href: "/lp/overview",
     index: "03"
 
   },
@@ -35,7 +35,7 @@ const data = [
     image: "/index/react.svg",
     alt: "react image",
     description: "Reactのフレームワークの1つであるNext.jsに触れることで、コンポーネントのような概念を理解します。",
-    href: "/react",
+    href: "/react/overview",
     index: "04"
   }
 ]
