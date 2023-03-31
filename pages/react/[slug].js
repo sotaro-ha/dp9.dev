@@ -39,7 +39,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
     const { slug } = params;
-    const file = fs.readFileSync(path.join('articles/setup', `${slug}.md`), 'utf-8');
+    const file = fs.readFileSync(path.join('articles/react', `${slug}.md`), 'utf-8');
     const { data, content } = matter(file);
     const articles = getArticleData().setup;
 

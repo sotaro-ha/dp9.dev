@@ -2,10 +2,10 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+import Footer from '../../components/footer';
 import SubNavbar from '../../components/subNavbar';
 import { getArticleData } from '../../lib/articles';
-import ArticleNavigation from '../../components/ArticleNavigation';
+import ArticleNavigation from '../../components/articleNavigation';
 import MarkdownRenderer from '../../components/MarkdownRenderer';
 import { getTitlesFromDirectory } from "../../lib/navLinks";
 
@@ -13,7 +13,7 @@ export default function Article({ article, articles, prevArticle, nextArticle, n
     return (
         <div>
             <Header />
-            <div className='flex max-6xl mx-auto shadow-sm'>
+            <div className='flex max-6xl mx-auto'>
                 <SubNavbar navLinks={navLinks} />
                 <div className='p-8'>
                     <div className='markdown'>
@@ -66,7 +66,6 @@ export async function getStaticProps({ params }) {
         props: {
             article: {
                 title: data.title,
-                order: data.order,
                 content,
             },
             articles,

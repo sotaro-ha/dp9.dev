@@ -13,7 +13,7 @@ export default function Article({ article, articles, prevArticle, nextArticle, n
     return (
         <div>
             <Header />
-            <div className='flex max-6xl mx-auto shadow-sm'>
+            <div className='flex max-6xl mx-auto'>
                 <SubNavbar navLinks={navLinks} />
                 <div className='p-8'>
                     <div className='markdown'>
@@ -39,7 +39,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
     const { slug } = params;
-    const file = fs.readFileSync(path.join('articles/setup', `${slug}.md`), 'utf-8');
+    const file = fs.readFileSync(path.join('articles/lp', `${slug}.md`), 'utf-8');
     const { data, content } = matter(file);
     const articles = getArticleData().setup;
 
@@ -66,7 +66,6 @@ export async function getStaticProps({ params }) {
         props: {
             article: {
                 title: data.title,
-                order: data.order,
                 content,
             },
             articles,

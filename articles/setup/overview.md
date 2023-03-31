@@ -26,13 +26,13 @@ function alert() {
 }
 ```
 ```css
-// 背景色を赤にする
+/* 背景色を赤にする*/
 body {
   background-color: red;
 }
 ```
 ```html
-// リンクを作成する
+/* Googleへのリンクを作る*/
 <a href="https://www.google.com/">Google</a>
 ```
 
