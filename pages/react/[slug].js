@@ -28,7 +28,7 @@ export default function Article({ article, articles, prevArticle, nextArticle, n
 }
 
 export async function getStaticPaths() {
-    const files = fs.readdirSync('articles/setup');
+    const files = fs.readdirSync('articles/react');
     const slugs = files.map((file) => file.replace('.md', ''));
     const paths = slugs.map((slug) => ({ params: { slug } }));
     return {
