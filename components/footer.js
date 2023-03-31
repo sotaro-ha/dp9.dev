@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-function Footer() {
+export default function Footer() {
     return (
         <footer className="bg-white rounded-lg dark:bg-gray-900 m-4">
             <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
@@ -31,4 +31,3 @@ function Footer() {
     );
 }
 
-export default Footer;
