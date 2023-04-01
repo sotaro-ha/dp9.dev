@@ -12,6 +12,7 @@ import Quiz from "../../components/quiz";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import Breadcrumb from "../../components/BreadCrumb";
+import Pagination from "../../components/Pagination";
 export default function Article({
   article,
   prevArticle,
@@ -28,6 +29,7 @@ export default function Article({
         <SubNavbar navLinks={navLinks} points={props.points} />
         <div className="p-8">
           <Breadcrumb title={article.title} />
+          <Pagination currentOrder={article.order} Links={navLinks[0]} />
           <div className="markdown">
             <MarkdownRenderer content={article.content} />
             <Quiz
