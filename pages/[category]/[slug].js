@@ -3,7 +3,7 @@ import Footer from "../../components/Footer";
 import SubNavbar from "../../components/subNavbar";
 import ArticleNavigation from "../../components/ArticleNavigation";
 import MarkdownRenderer from "../../components/MarkdownRenderer";
-import Quiz from "../../components/quiz";
+import Quiz from "../../components/Quiz";
 import Breadcrumb from "../../components/BreadCrumb";
 import Pagination from "../../components/Pagination";
 
