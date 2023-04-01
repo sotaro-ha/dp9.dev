@@ -35,7 +35,7 @@ export default function Header() {
             <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div className="flex lg:flex-1">
                     <Link href="/" className="-m-1.5 p-1.5">
-                        <span className="sr-only">Your Company</span>
+                        <span className="sr-only">designing plus nine</span>
                         <Image className="h-8 w-auto" width={32} height={32} src="/logo.png" alt="Logo" />
                     </Link>
                 </div>
