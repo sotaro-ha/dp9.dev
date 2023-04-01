@@ -24,8 +24,9 @@ const Quiz = (props) => {
   };
 
   return (
-    <div>
-      <h3>{article.quiz.question}</h3>
+    <div className="shadow-md px-8 py-4">
+      <h2 className="font-bold text-2xl">QUIZ</h2>
+      <h3 className="text-xl">{article.quiz.question}</h3>
       <form>
         {article.quiz.options.map((option, index) => (
           <div key={index}>

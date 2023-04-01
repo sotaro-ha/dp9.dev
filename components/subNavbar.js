@@ -72,8 +72,8 @@ const NavSection = ({ title, basePath, links, isOpen }) => {
 
 const SidebarNav = ({ navLinks, points }) => {
   const router = useRouter();
-  const basePath = router.pathname.split("/")[1];
-
+  const basePath = router.asPath.split("/")[1];
+  console.log(basePath, navLinks);
   return (
     <nav className="min-w-[240px] p-8 border-r border-gray">
       <PointsDisplay points={points} />

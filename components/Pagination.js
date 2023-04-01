@@ -1,13 +1,13 @@
 import React from "react";
 import Link from "next/link";
-
+import { useRouter } from "next/router";
 const Pagination = ({ Links, currentOrder }) => {
-  console.log(Links);
   const basePath = Links.basePath;
   const Link_array = Links.links;
-
+  const router = useRouter();
+  const path = router.asPath;
   return (
-    <div>
+    <div key={path}>
       <ul className="flex flex-wrap my-8">
         {Link_array.map((article) => (
           <li key={article.order} className="mr-4">
