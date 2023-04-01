@@ -5,7 +5,7 @@ import usePagePoints from "../hooks/usePagePoints";
 import Script from "next/script";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import * as gtag from "src/lib/gtag";
+import * as gtag from "../lib/gtag";
 
 function MyApp({ Component, pageProps }) {
   const points = usePagePoints();
