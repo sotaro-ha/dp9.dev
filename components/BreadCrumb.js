@@ -40,12 +40,12 @@ const Breadcrumb = (props) => {
                 : generateLink("Reactチュートリアル", "/react");
             case "diary":
               return index === pathSegments.length - 1
-                ? generateTitle("ダイアリー")
-                : generateLink("ダイアリー", "/diary");
+                ? generateTitle("日記サイトを作ってみよう")
+                : generateLink("日記サイトを作ってみよう", "/diary");
             case "setup":
               return index === pathSegments.length - 1
-                ? generateTitle("セットアップ")
-                : generateLink("セットアップ", "/setup");
+                ? generateTitle("環境設定をしよう")
+                : generateLink("環境設定をしよう", "/setup");
             default:
               return (
                 index === pathSegments.length - 1 && (

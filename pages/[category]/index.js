@@ -16,7 +16,77 @@ import MarkdownRenderer from "../../components/MarkdownRenderer";
 import Breadcrumb from "../../components/BreadCrumb";
 import Pagination from "../../components/Pagination";
 
-import Link from "next/link";
+function Content({ category }) {
+  if (category == "setup") {
+    return (
+      <>
+        <h2>この章の概要</h2>
+        <p>
+          サンプルです。サンプルです。サンプルです。サンプルです。サンプルです。
+        </p>
+        <h2>この章でできるようになること</h2>
+        <p>
+          サンプルです。サンプルです。サンプルです。サンプルです。サンプルです。
+        </p>
+        <h2>この章の前提知識</h2>
+        <p>
+          サンプルです。サンプルです。サンプルです。サンプルです。サンプルです。
+        </p>
+      </>
+    );
+  } else if (category == "diary") {
+    return (
+      <>
+        <h2>この章の概要</h2>
+        <p>
+          サンプルです。サンプルです。サンプルです。サンプルです。サンプルです。
+        </p>
+        <h2>この章でできるようになること</h2>
+        <p>
+          サンプルです。サンプルです。サンプルです。サンプルです。サンプルです。
+        </p>
+        <h2>この章の前提知識</h2>
+        <p>
+          サンプルです。サンプルです。サンプルです。サンプルです。サンプルです。
+        </p>
+      </>
+    );
+  } else if (category == "lp") {
+    return (
+      <>
+        <h2>この章の概要</h2>
+        <p>
+          サンプルです。サンプルです。サンプルです。サンプルです。サンプルです。
+        </p>
+        <h2>この章でできるようになること</h2>
+        <p>
+          サンプルです。サンプルです。サンプルです。サンプルです。サンプルです。
+        </p>
+        <h2>この章の前提知識</h2>
+        <p>
+          サンプルです。サンプルです。サンプルです。サンプルです。サンプルです。
+        </p>
+      </>
+    );
+  } else if (category == "react") {
+    return (
+      <>
+        <h2>この章の概要</h2>
+        <p>
+          サンプルです。サンプルです。サンプルです。サンプルです。サンプルです。
+        </p>
+        <h2>この章でできるようになること</h2>
+        <p>
+          サンプルです。サンプルです。サンプルです。サンプルです。サンプルです。
+        </p>
+        <h2>この章の前提知識</h2>
+        <p>
+          サンプルです。サンプルです。サンプルです。サンプルです。サンプルです。
+        </p>
+      </>
+    );
+  }
+}
 
 export default function Article({
   navLinks,
@@ -36,7 +106,9 @@ export default function Article({
           <div>
             <Breadcrumb title={null} />
             <Pagination currentOrder={0} Links={navLinks[index[category]]} />
-            <div className="markdown "></div>
+            <div className="markdown ">
+              <Content category={category} />
+            </div>
             <ArticleNavigation
               category={category}
               prevArticle={null}

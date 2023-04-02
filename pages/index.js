@@ -62,12 +62,12 @@ function Hero() {
           </p>
           <div className="mt-10 sm:flex sm:justify-center">
             <div className=" font-bold">
-              <a
-                href="#"
+              <Link
+                href="/setup"
                 className="w-full flex items-center rounded-xl justify-center px-16 py-3  text-base  text-gray-800 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
               >
                 Start Learning
-              </a>
+              </Link>
             </div>
           </div>
         </div>
