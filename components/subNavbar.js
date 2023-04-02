@@ -47,7 +47,6 @@ const NavItem = ({ title, slug, basePath, isOpen }) => {
 
 const NavSection = ({ title, basePath, links, isOpen }) => {
   const [isExpanded, setIsExpanded] = useState(isOpen);
-  console.log(basePath);
   const toggleSection = () => {
     setIsExpanded(!isExpanded);
   };
@@ -57,7 +56,7 @@ const NavSection = ({ title, basePath, links, isOpen }) => {
         onClick={toggleSection}
         className=" cursor-pointer flex flex-nowrap items-center mb-2"
       >
-        <h3 className=" font-bold text-xl mr-2">{title}</h3>
+        <h3 className=" font-bold text-base lg:text-xl mr-2">{title}</h3>
         <Chevron isExpanded={isExpanded} />
       </div>
       {isExpanded && (
@@ -74,13 +73,12 @@ const NavSection = ({ title, basePath, links, isOpen }) => {
   );
 };
 
-const SidebarNav = ({ navLinks, points }) => {
+const SidebarNav = ({ navLinks, points, mobile }) => {
   const router = useRouter();
   const basePath = router.asPath.split("/")[1];
-  console.log(basePath, navLinks);
   return (
-    <nav className="min-w-[240px] p-8 border-r border-gray">
-      <PointsDisplay points={points} />
+    <nav className="min-w-[240px] px-8 lg:p-8 border-r border-gray">
+      {!mobile ? <PointsDisplay points={points} /> : <></>}
       {navLinks.map((section) => (
         <NavSection
           key={section.basePath}

@@ -23,6 +23,7 @@ export default function Article({
   nextArticle,
   navLinks,
   category,
+  isFirstArticle,
   ...props
 }) {
   const router = useRouter();
@@ -30,9 +31,11 @@ export default function Article({
   const index = { setup: 0, diary: 1, lp: 2, react: 3 };
   return (
     <div>
-      <Header />
+      <Header navLinks={navLinks} />
       <div className="flex  mx-auto shadow-sm">
-        <SubNavbar navLinks={navLinks} points={props.points} />
+        <div className="hidden lg:block">
+          <SubNavbar navLinks={navLinks} points={props.points} />
+        </div>
         <div className="p-8 max-w-6xl mx-auto text-left w-full">
           <div>
             <Breadcrumb title={article.title} />
@@ -53,6 +56,7 @@ export default function Article({
               category={category}
               prevArticle={prevArticle}
               nextArticle={nextArticle}
+              isFirstArticle={isFirstArticle}
             />
           </div>
         </div>
@@ -82,7 +86,9 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const { category, slug } = params;
   const article = getArticleData(fs, category, slug);
-  const articles = getCategoryArticles(fs, category);
+  const articles = getCategoryArticles(fs, category).sort(
+    (a, b) => a.order - b.order
+  );
 
   const currentArticleIndex = articles.findIndex((a) => a.slug === slug);
   const prevArticle =
@@ -91,7 +97,7 @@ export async function getStaticProps({ params }) {
     currentArticleIndex < articles.length - 1
       ? articles[currentArticleIndex + 1]
       : null;
-
+  const isFirstArticle = currentArticleIndex === 0;
   // Create navLinks
   const navLinks = [
     {
@@ -114,7 +120,10 @@ export async function getStaticProps({ params }) {
       basePath: "react",
       links: getTitlesFromDirectory(fs, "articles/react"),
     },
-  ];
+  ].map((navLink) => ({
+    ...navLink,
+    links: navLink.links.sort((a, b) => a.order - b.order),
+  }));
   return {
     props: {
       article,
@@ -122,6 +131,7 @@ export async function getStaticProps({ params }) {
       nextArticle,
       navLinks,
       category,
+      isFirstArticle,
     },
   };
 }

@@ -13,22 +13,36 @@ import Footer from "../../components/Footer";
 import SubNavbar from "../../components/subNavbar";
 import ArticleNavigation from "../../components/ArticleNavigation";
 import MarkdownRenderer from "../../components/MarkdownRenderer";
-import Quiz from "../../components/Quiz";
 import Breadcrumb from "../../components/BreadCrumb";
 import Pagination from "../../components/Pagination";
 
-export default function Article({ navLinks, category, ...props }) {
+import Link from "next/link";
+
+export default function Article({
+  navLinks,
+  category,
+  firstArticle,
+  ...props
+}) {
   const index = { setup: 0, diary: 1, lp: 2, react: 3 };
   return (
     <div>
-      <Header />
+      <Header navLinks={navLinks} />
       <div className="flex  mx-auto shadow-sm">
-        <SubNavbar navLinks={navLinks} points={props.points} />
+        <div className="hidden lg:block">
+          <SubNavbar navLinks={navLinks} points={props.points} />
+        </div>
         <div className="p-8 max-w-6xl mx-auto text-left w-full">
           <div>
             <Breadcrumb title={null} />
             <Pagination currentOrder={0} Links={navLinks[index[category]]} />
             <div className="markdown "></div>
+            <ArticleNavigation
+              category={category}
+              prevArticle={null}
+              nextArticle={firstArticle}
+              isFirstArticle={false}
+            />
           </div>
         </div>
       </div>
@@ -39,14 +53,9 @@ export default function Article({ navLinks, category, ...props }) {
 
 export async function getStaticPaths() {
   const categories = ["lp", "setup", "diary", "react"];
-  const paths = [];
-
-  categories.forEach((category) => {
-    const slugs = getArticleSlugs(fs, category);
-    slugs.forEach((slug) => {
-      paths.push({ params: { category, slug } });
-    });
-  });
+  const paths = categories.map((category) => ({
+    params: { category },
+  }));
 
   return {
     paths,
@@ -55,8 +64,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const { category, slug } = params;
+  const { category } = params;
   const articles = getCategoryArticles(fs, category);
+  const firstArticle = articles.find((article) => article.order === 1);
 
   // Create navLinks
   const navLinks = [
@@ -80,11 +90,15 @@ export async function getStaticProps({ params }) {
       basePath: "react",
       links: getTitlesFromDirectory(fs, "articles/react"),
     },
-  ];
+  ].map((navLink) => ({
+    ...navLink,
+    links: navLink.links.sort((a, b) => a.order - b.order),
+  }));
   return {
     props: {
       navLinks,
       category,
+      firstArticle,
     },
   };
 }

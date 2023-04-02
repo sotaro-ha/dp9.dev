@@ -14,31 +14,32 @@ import {
   PhoneIcon,
   PlayCircleIcon,
 } from "@heroicons/react/20/solid";
+import SidebarNav from "./subNavbar";
 import Link from "next/link";
 import Image from "next/image";
 const products = [
   {
     name: "1章:基本設定をしよう",
-    description: "Get a better understanding of your traffic",
-    href: "/setup/overview",
+    description: "VScodeや、GitなどWeb開発に欠かせないツールの導入",
+    href: "/setup/",
     icon: ChartPieIcon,
   },
   {
     name: "2章:日記ページを作ってみよう",
-    description: "Speak directly to your customers",
-    href: "#",
+    description: "シンプルな日記サイトの制作を通したhtmlやcssの基本",
+    href: "/diary",
     icon: CursorArrowRaysIcon,
   },
   {
     name: "3章:LPを作ってみよう",
-    description: "Your customers’ data will be safe and secure",
-    href: "#",
+    description: "LPの制作を通した実践的な知識",
+    href: "/lp",
     icon: FingerPrintIcon,
   },
   {
     name: "4章:Reactを作ってみよう",
-    description: "Connect with third-party tools",
-    href: "#",
+    description: "Reactのフレームワークの1つであるNext.jsの導入",
+    href: "/react",
     icon: SquaresPlusIcon,
   },
 ];
@@ -47,12 +48,12 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Header() {
+export default function Header({ navLinks }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <header className="bg-white shadow-sm">
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        className="mx-auto flex max-w-6xl items-center justify-between p-6 lg:px-8"
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
@@ -78,9 +79,12 @@ export default function Header() {
           </button>
         </div>
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+          <Link
+            href="/about"
+            className="text-sm font-semibold leading-6 text-gray-900"
+          >
             About
-          </a>
+          </Link>
           <Popover className="relative">
             <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
               Tutorial
@@ -99,7 +103,7 @@ export default function Header() {
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 translate-y-1"
             >
-              <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
+              <Popover.Panel className="absolute top-full left-1/2 transform -translate-x-1/2  z-10 mt-3 w-screen max-w-sm overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
                 <div className="p-4">
                   {products.map((item) => (
                     <div
@@ -129,9 +133,12 @@ export default function Header() {
             </Transition>
           </Popover>
 
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+          <Link
+            href="/dojo"
+            className="text-sm font-semibold leading-6 text-gray-900"
+          >
             Dojo
-          </a>
+          </Link>
         </Popover.Group>
       </nav>
       <Dialog
@@ -184,18 +191,9 @@ export default function Header() {
                           aria-hidden="true"
                         />
                       </Disclosure.Button>
-                      <Disclosure.Panel className="mt-2 space-y-2">
-                        {[...products].map((item) => (
-                          <Disclosure.Button
-                            key={item.name}
-                            as="a"
-                            href={item.href}
-                            className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                          >
-                            {item.name}
-                          </Disclosure.Button>
-                        ))}
-                      </Disclosure.Panel>
+                      <div className="mt-4">
+                        <SidebarNav navLinks={navLinks} mobile={true} />
+                      </div>
                     </>
                   )}
                 </Disclosure>
