@@ -41,7 +41,14 @@ const Quiz = (props) => {
           </div>
         ))}
       </form>
-      <button onClick={handleSubmit}>回答する</button>
+      <div className="text-right">
+        <button
+          onClick={handleSubmit}
+          className="bg-primary text-white px-4 py-1 rounded-full"
+        >
+          回答する
+        </button>
+      </div>
       {isCorrect === true && <p>正解です！</p>}
       {isCorrect === false && <p>残念、不正解です。</p>}
     </div>
