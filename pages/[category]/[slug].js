@@ -33,26 +33,28 @@ export default function Article({
       <Header />
       <div className="flex  mx-auto shadow-sm">
         <SubNavbar navLinks={navLinks} points={props.points} />
-        <div className="p-8 max-w-6xl mx-auto">
-          <Breadcrumb title={article.title} />
-          <Pagination
-            currentOrder={article.order}
-            Links={navLinks[index[category]]}
-          />
-          <div className="markdown ">
-            <MarkdownRenderer content={article.content} />
-            <Quiz
-              article={article}
-              setTestedPages={setTestedPages}
-              pathname={router.asPath}
-              key={article.slug}
+        <div className="p-8 max-w-6xl mx-auto text-left w-full">
+          <div>
+            <Breadcrumb title={article.title} />
+            <Pagination
+              currentOrder={article.order}
+              Links={navLinks[index[category]]}
+            />
+            <div className="markdown ">
+              <MarkdownRenderer content={article.content} />
+              <Quiz
+                article={article}
+                setTestedPages={setTestedPages}
+                pathname={router.asPath}
+                key={article.slug}
+              />
+            </div>
+            <ArticleNavigation
+              category={category}
+              prevArticle={prevArticle}
+              nextArticle={nextArticle}
             />
           </div>
-          <ArticleNavigation
-            category={category}
-            prevArticle={prevArticle}
-            nextArticle={nextArticle}
-          />
         </div>
       </div>
       <Footer />

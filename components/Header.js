@@ -18,39 +18,29 @@ import Link from "next/link";
 import Image from "next/image";
 const products = [
   {
-    name: "Analytics",
+    name: "1章:基本設定をしよう",
     description: "Get a better understanding of your traffic",
-    href: "#",
+    href: "/setup/overview",
     icon: ChartPieIcon,
   },
   {
-    name: "Engagement",
+    name: "2章:日記ページを作ってみよう",
     description: "Speak directly to your customers",
     href: "#",
     icon: CursorArrowRaysIcon,
   },
   {
-    name: "Security",
+    name: "3章:LPを作ってみよう",
     description: "Your customers’ data will be safe and secure",
     href: "#",
     icon: FingerPrintIcon,
   },
   {
-    name: "Integrations",
+    name: "4章:Reactを作ってみよう",
     description: "Connect with third-party tools",
     href: "#",
     icon: SquaresPlusIcon,
   },
-  {
-    name: "Automations",
-    description: "Build strategic funnels that will convert",
-    href: "#",
-    icon: ArrowPathIcon,
-  },
-];
-const callsToAction = [
-  { name: "Watch demo", href: "#", icon: PlayCircleIcon },
-  { name: "Contact sales", href: "#", icon: PhoneIcon },
 ];
 
 function classNames(...classes) {
@@ -135,21 +125,6 @@ export default function Header() {
                     </div>
                   ))}
                 </div>
-                <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                  {callsToAction.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
-                    >
-                      <item.icon
-                        className="h-5 w-5 flex-none text-gray-400"
-                        aria-hidden="true"
-                      />
-                      {item.name}
-                    </a>
-                  ))}
-                </div>
               </Popover.Panel>
             </Transition>
           </Popover>
@@ -210,7 +185,7 @@ export default function Header() {
                         />
                       </Disclosure.Button>
                       <Disclosure.Panel className="mt-2 space-y-2">
-                        {[...products, ...callsToAction].map((item) => (
+                        {[...products].map((item) => (
                           <Disclosure.Button
                             key={item.name}
                             as="a"

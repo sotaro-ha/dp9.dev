@@ -9,6 +9,18 @@ const Pagination = ({ Links, currentOrder }) => {
   return (
     <div key={path}>
       <ul className="flex flex-wrap my-8">
+        <li className="mr-4">
+          <Link
+            href={`/${basePath}/`}
+            className={
+              0 === currentOrder
+                ? "bg-primary text-white rounded-md px-3 py-1 shadow-sm hover:shadow-md"
+                : " text-primary px-4 py-2 bg-white shadow-sm rounded-md hover:shadow-md"
+            }
+          >
+            0
+          </Link>
+        </li>
         {Link_array.map((article) => (
           <li key={article.order} className="mr-4">
             <Link

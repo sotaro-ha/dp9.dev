@@ -39,7 +39,7 @@ const NavItem = ({ title, slug, basePath, isOpen }) => {
     router.pathname === `/${basePath}/[slug]` && router.query.slug === slug;
 
   return (
-    <li className="pl-4 mb-1">
+    <li className="mb-1">
       <Link href={`/${basePath}/${slug}`}>{title}</Link>
     </li>
   );
@@ -47,6 +47,7 @@ const NavItem = ({ title, slug, basePath, isOpen }) => {
 
 const NavSection = ({ title, basePath, links, isOpen }) => {
   const [isExpanded, setIsExpanded] = useState(isOpen);
+  console.log(basePath);
   const toggleSection = () => {
     setIsExpanded(!isExpanded);
   };
@@ -60,7 +61,10 @@ const NavSection = ({ title, basePath, links, isOpen }) => {
         <Chevron isExpanded={isExpanded} />
       </div>
       {isExpanded && (
-        <ul>
+        <ul className="pl-4 ">
+          <li>
+            <Link href={"/" + basePath}>この章の概要</Link>
+          </li>
           {links.map((link) => (
             <NavItem key={link.slug} basePath={basePath} {...link} />
           ))}
