@@ -16,6 +16,8 @@ import MarkdownRenderer from "../../components/MarkdownRenderer";
 import Breadcrumb from "../../components/BreadCrumb";
 import Pagination from "../../components/Pagination";
 
+import Link from "next/link";
+
 function Content({ category }) {
   if (category == "setup") {
     return (
@@ -43,7 +45,10 @@ function Content({ category }) {
         </p>
         <h2>この章でできるようになること</h2>
         <p>
-          サンプルです。サンプルです。サンプルです。サンプルです。サンプルです。
+          <Link href="/diary-samples" className="text-primary">
+            このページ
+          </Link>
+          を制作できるようになります。
         </p>
         <h2>この章の前提知識</h2>
         <p>
@@ -60,7 +65,10 @@ function Content({ category }) {
         </p>
         <h2>この章でできるようになること</h2>
         <p>
-          サンプルです。サンプルです。サンプルです。サンプルです。サンプルです。
+          <Link href="/lp-samples" className="text-primary">
+            このページ
+          </Link>
+          を制作できるようになります。
         </p>
         <h2>この章の前提知識</h2>
         <p>

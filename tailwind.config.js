@@ -6,7 +6,7 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
     "./layout/**/*.{js,ts,jsx,tsx}",
-    "./styles/globals.css"
+    "./styles/globals.css",
   ],
   options: {
     safelist: {
@@ -14,17 +14,6 @@ module.exports = {
     },
   },
   theme: {
-    colors: {
-      primary: "#0079FF",
-      secondary: "#FFA300",
-      black: "#333333",
-      black2: "#000000",
-      white: "#FFFFFF",
-      white2: "#FBFBFB",
-      gray: "#D9D9D9",
-      gray2: "#858897",
-      yellow: "#FFB300",
-    },
     screens: {
       xs: "400px",
       ...defaultTheme.screens,
@@ -32,6 +21,17 @@ module.exports = {
     extend: {
       fontFamily: {
         noto: ['"Noto Sans JP"', "sans-serif"],
+      },
+      colors: {
+        primary: "#0079FF",
+        secondary: "#FFA300",
+        black: "#333333",
+        black2: "#000000",
+        white: "#FFFFFF",
+        white2: "#FBFBFB",
+        gray: "#D9D9D9",
+        gray2: "#858897",
+        yellow: "#FFB300",
       },
     },
   },
@@ -46,8 +46,8 @@ module.exports = {
             "1px 1px 0 #000 , -1px -1px 0 #000 , 1px -1px 0 #000 , -1px 1px 0 #000",
         },
         ".text-shadow-hover": {
-          textShadow: "none"
-        }
+          textShadow: "none",
+        },
       };
 
       addUtilities(newUtilities);
